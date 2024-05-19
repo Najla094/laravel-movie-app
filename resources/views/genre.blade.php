@@ -25,9 +25,6 @@
             <!-- ====== Table Two Start -->
             <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
                 <div class="grid grid-cols-6 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
-                    <div class="col-span-3 flex items-center">
-                        <p class="font-medium">Id</p>
-                    </div>
                     <div class="col-span-1 items-center sm:flex">
                         <p class="font-medium">Name</p>
                     </div>
@@ -39,24 +36,21 @@
                     </div>
                 </div>
 
+                @foreach ($genres as $genre)
                 <div class="grid grid-cols-6 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
-                    <div class="col-span-3 flex items-center">
+                    <div class="col-span-1 flex items-center">
                         <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
                             <p class="text-sm font-medium text-black dark:text-white">
-                                1
+                                {{ $genre['name'] }}
                             </p>
                         </div>
                     </div>
-                    <div class="col-span-1 items-center sm:flex">
+                    <div class="col-span-3 items-center sm:flex">
                         <p class="text-sm font-medium text-black dark:text-white">
-                            Adventure 
+                            {{ $genre['description'] }}
                         </p>
                     </div>
-                    <div class="col-span-3 flex items-center">
-                        <p class="text-sm font-medium text-black dark:text-white">
-                        Adventure mengisahkan tentang perjalanan, penjelajahan dari para pemain atau tokohnya, Perjalanan ini untuk mencapai tujuan, ambisi, hingga misi tertentu.
-                        </p>
-                    </div>
+                
                     <div class="col-span-1 flex items-center">
                         <div class="flex items-center space-x-1">
                             <a href="" class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">Edit</a>
@@ -64,105 +58,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="grid grid-cols-6 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
-                    <div class="col-span-3 flex items-center">
-                        <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
-                            <p class="text-sm font-medium text-black dark:text-white">
-                                2
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-span-1 items-center sm:flex">
-                        <p class="text-sm font-medium text-black dark:text-white">
-                           Comedy
-                        </p>
-                    </div>
-                    <div class="col-span-3 flex items-center">
-                        <p class="text-sm font-medium text-black dark:text-white">
-                            Anime yang bergenre comedy ialah anime yang biasanya manampilkan kisah yang menghibur dan membuat penonton tertawa.
-                        </p>
-                    </div>
-                    <div class="col-span-1 flex items-center">
-                        <div class="flex items-center space-x-1">
-                            <a href="" class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">Edit</a>
-                            <a href="" class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-800 ring-1 ring-inset ring-red-600/20">Delete</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid grid-cols-6 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
-                    <div class="col-span-3 flex items-center">
-                        <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
-                            <p class="text-sm font-medium text-black dark:text-white">
-                                3
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-span-1 items-center sm:flex">
-                        <p class="text-sm font-medium text-black dark:text-white">
-                            Fantasy
-                        </p>
-                    </div>
-                    <div class="col-span-3 flex items-center">
-                        <p class="text-sm font-medium text-black dark:text-white">
-                            Cerita anime bergenre fantasy yaitu cerita yang penuh imajinasi atau hal-hal yang biasanya tidak ada di dunia nyata.
-                        </p>
-                    </div>
-                    <div class="col-span-1 flex items-center">
-                        <div class="flex items-center space-x-1">
-                            <a href="" class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">Edit</a>
-                            <a href="" class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-800 ring-1 ring-inset ring-red-600/20">Delete</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid grid-cols-6 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
-                    <div class="col-span-3 flex items-center">
-                        <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
-                            <p class="text-sm font-medium text-black dark:text-white">
-                                4
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-span-1 items-center sm:flex">
-                        <p class="text-sm font-medium text-black dark:text-white">
-                            Action
-                        </p>
-                    </div>
-                    <div class="col-span-3 flex items-center">
-                        <p class="text-sm font-medium text-black dark:text-white">
-                            Anime yang bergenre action mengahadirkan cerita yang memilki petarung yang kuat, dan biasanya alur cerita yang sulit ditebak.
-                        </p>
-                    </div>
-                    <div class="col-span-1 flex items-center">
-                        <div class="flex items-center space-x-1">
-                            <a href="" class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">Edit</a>
-                            <a href="" class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-800 ring-1 ring-inset ring-red-600/20">Delete</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid grid-cols-6 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
-                    <div class="col-span-3 flex items-center">
-                        <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
-                            <p class="text-sm font-medium text-black dark:text-white">
-                                5
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-span-1 items-center sm:flex">
-                        <p class="text-sm font-medium text-black dark:text-white">
-                            School Life
-                        </p>
-                    </div>
-                    <div class="col-span-3 flex items-center">
-                        <p class="text-sm font-medium text-black dark:text-white">
-                            Anime bergenre school life menampilkan cerita yang alurnya kerap berlatar belakang kejadian-kejadian di sekolah.
-                    </div>
-                    <div class="col-span-1 flex items-center">
-                        <div class="flex items-center space-x-1">
-                            <a href="" class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">Edit</a>
-                            <a href="" class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-800 ring-1 ring-inset ring-red-600/20">Delete</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
 
             <!-- ====== Table Two End -->
