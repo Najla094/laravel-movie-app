@@ -9,9 +9,8 @@ class ReviewController extends Controller
 {
     public function review()
     {
-        $review = New Review();
-        $reviews = $review->getAllReview();
+        $reviews = Review::all();
 
-        return view('review', ['reviews' => $reviews]);
+        return view('review', compact('reviews'));
     }
 }
