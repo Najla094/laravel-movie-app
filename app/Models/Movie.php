@@ -13,4 +13,6 @@ class Movie extends Model
     {
         return $this->belongsTo(Genre::class, 'genre_id');
     }
+
+    protected $fillable = ['title', 'poster', 'genre_id', 'synopsis'];
 }

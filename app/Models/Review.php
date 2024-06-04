@@ -13,4 +13,6 @@ class Review extends Model
     {
         return $this->belongsTo(Movie::class, 'movie_id');
     }
+
+    protected $fillable = ['movie_id', 'user', 'rating', 'date', 'poster'];
 }

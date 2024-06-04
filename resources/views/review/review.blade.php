@@ -11,7 +11,7 @@
 
             <nav>
                 <a
-                    href="/movies/create"
+                    href="/review/create"
                     class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
                 >
                     Create
@@ -19,6 +19,7 @@
             </nav>
         </div>
         <!-- Breadcrumb End -->
+
         @if (session('success'))
   <div
       class="flex w-full border-l-6 border-[#34D399] bg-[#34D399] bg-opacity-[15%] my-4 px-7 py-6 shadow-md dark:bg-[#1B1B24] dark:bg-opacity-30"
@@ -55,46 +56,60 @@
             <!-- ====== Table Two Start -->
             <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
                 <div class="grid grid-cols-6 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
-                    <div class="col-span-3 flex items-center">
-                        <p class="font-medium">Anime Name</p>
-                    </div>
+    
                     <div class="col-span-1 items-center sm:flex">
-                        <p class="font-medium">Genre</p>
+                        <p class="font-medium"></p>
                     </div>
-                    <div class="col-span-3 flex items-center">
-                        <p class="font-medium">Synopsis</p>
+                    <div class="col-span-2 items-center sm:flex">
+                        <p class="font-medium">Movie</p>
+                    </div>
+                    <div class="col-span-1 flex items-center">
+                        <p class="font-medium">User</p>
+                    </div>
+                    <div class="col-span-1 flex items-center">
+                        <p class="font-medium">Rating</p>
+                    </div>
+                    <div class="col-span-1 flex items-center">
+                        <p class="font-medium">Date</p>
                     </div>
                     <div class="col-span-1 flex items-center">
                         <p class="font-medium">Actions</p>
                     </div>
                 </div>
 
-                @foreach ($movies as $movie)
+                @foreach ($reviews as $review)
                 <div class="grid grid-cols-6 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
                     <div class="col-span-3 flex items-center">
                         <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
-                            <div class="w-12 rounded-md">
-                                <img src="src/images/movie/{{ $movie->poster }}" alt="Product" />
+                            <div class="w-16 ml-10 rounded-md">
+                                <img src="src/images/review/{{ $review->poster }}"/>
                             </div>
+                            <div class="col-span-1 flex items-center">
                             <p class="text-sm font-medium text-black dark:text-white">
-                                {{ $movie->title }}
+                                {{ $review->movie->title }}
                             </p>
+                            </div>
                         </div>
                     </div>
                     <div class="col-span-1 items-center sm:flex">
                         <p class="text-sm font-medium text-black dark:text-white">
-                            {{ $movie->genre->name }}
+                            {{ $review->user }}
                         </p>
                     </div>
-                    <div class="col-span-3 flex items-center">
+                    <div class="col-span-1 flex items-center">
                         <p class="text-sm font-medium text-black dark:text-white">
-                            {{ $movie->synopsis }}
+                            {{ $review->rating }}
+                        </p>
+                    </div>
+                    <div class="col-span-1 flex items-center">
+                        <p class="text-sm font-medium text-black dark:text-white">
+                            {{ $review->date }}   
                         </p>
                     </div>
                     <div class="col-span-1 flex items-center">
                         <div class="flex items-center space-x-1">
                             <a href="" class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">Edit</a>
-                            <form action="/movies/{{ $movie->id }}" method="POST">
+                            <form action="/review/{{ $review->id }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-800 ring-1 ring-inset ring-red-600/20" onclick="return confirm('Apakah Anda yakin ingin menghapus?')">Delete</button>
@@ -103,7 +118,6 @@
                     </div>
                 </div>
                 @endforeach
-                
             </div>
 
             <!-- ====== Table Two End -->
