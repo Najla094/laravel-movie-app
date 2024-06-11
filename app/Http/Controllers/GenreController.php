@@ -7,16 +7,16 @@ use Illuminate\Http\Request;
 
 class GenreController extends Controller
 {
-    public function genre()
+    public function index()
     {
         $genres = Genre::all();
-        return view('genre.genre', compact('genres'));
+        return view('genres.index', compact('genres'));
     }
 
     public function create()
     {
         $genres = Genre::all();
-        return view('genre.create', compact('genres'));
+        return view('genres.create', compact('genres'));
     }
 
     public function store(Request $request)
@@ -24,15 +24,32 @@ class GenreController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'description' => 'required',       
-    ]);
+        ]);
 
-    Genre::create($validatedData);
-    return redirect('/genres')->with('success', 'Genre added successfully!');
+        Genre::create($validatedData);
+        return redirect('/genres')->with('success', 'Genre added successfully!');
     }
 
-    public function destroy(Genre $genres)
+    public function edit(Genre $genre)
     {
-        $genres->delete();
+        return view('genres.edit', compact('genre'));
+    }
+
+    public function update(Request $request, Genre $genre)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+        ]);
+
+        $genre->update($validatedData);
+
+        return redirect('/genres')->with('success', 'Genre updated successfully!');
+    }
+
+    public function destroy(Genre $genre)
+    {
+        $genre->delete();
         return redirect('/genres')->with('success', 'Genre deleted successfully!');
     }
 }
